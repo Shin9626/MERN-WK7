@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<link href="assets/style.css" type="text/css" rel="stylesheet" />
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js" ></script>
+	</head>
+	<body>
+		<h1>DTD 留言板</h1>
+		<form method="POST" action="/person">
+			暱稱 : <input type="text" id="name" name="name" /><br />
+			輸入你想說的話 : <input type="text" id="comments" name="comments" /><br />
+			<input type="submit" value="Submit" />
+		</form>
+		<h1>過去的留言</h1>
+		<% if (userinfos.length) { %>
+		  <ul>
+  		  <% userinfos.forEach(function(userinfo){ %>
+			<ul>
+				<li><%= userinfo['name'] %> 說 <%= userinfo['comments'] %></li>
+				　　<%= userinfo['time'] %>
+			</ul>		      
+		    <% }) %>
+	  	</ul>
+		<% } %>
+	</body>
+</html>
